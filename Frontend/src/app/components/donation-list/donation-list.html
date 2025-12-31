@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">Available Donations</mat-toolbar>
+
+<div *ngIf="loading" class="p-3">
+  Loading donations...
+</div>
+
+<div class="list-container">
+  <mat-card *ngFor="let d of donations" class="donation-card">
+
+    <h3>{{ d.donation_type }} ({{ d.quantity_or_amount }})</h3>
+
+    <p>
+      <b>Location:</b> {{ d.location }}<br>
+      <b>Status:</b> {{ d.status }}
+    </p>
+
+    <button
+      mat-raised-button
+      color="accent"
+      (click)="openDetails(d.id)">
+      View Details
+    </button>
+
+  </mat-card>
+</div>
